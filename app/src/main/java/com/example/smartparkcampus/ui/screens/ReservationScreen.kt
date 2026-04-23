@@ -1,0 +1,72 @@
+package com.example.smartparkcampus.ui.screens
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ReservationScreen(onNavigateBack: () -> Unit) {
+    var selectedSlot by remember { mutableStateOf("") }
+    var duration by remember { mutableStateOf("") }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Book a Slot") },
+                navigationIcon = {
+                    IconButton(onClick = onNavigateBack) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                }
+            )
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .padding(padding)
+                .padding(16.dp)
+                .fillMaxSize()
+        ) {
+            Text(text = "Select your preferred parking slot", style = MaterialTheme.typography.bodyLarge)
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            OutlinedTextField(
+                value = selectedSlot,
+                onValueChange = { selectedSlot = it },
+                label = { Text("Slot Number (e.g., A12)") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            OutlinedTextField(
+                value = duration,
+                onValueChange = { duration = it },
+                label = { Text("Estimated Duration (hours)") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            
+            Spacer(modifier = Modifier.weight(1f))
+            
+            // Security placeholder: Data encryption for sensitive user info
+            Text(
+                text = "Note: Your data is encrypted and stored securely.",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.outline
+            )
+            
+            Button(
+                onClick = { /* Handle Reservation Logic */ onNavigateBack() },
+                modifier = Modifier.fillMaxWidth(),
+                enabled = selectedSlot.isNotEmpty() && duration.isNotEmpty()
+            ) {
+                Text("Confirm Reservation")
+            }
+        }
+    }
+}
