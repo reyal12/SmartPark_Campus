@@ -50,7 +50,7 @@ fun LoginScreen(onNavigateToRegister: () -> Unit, onNavigateToDashboard: () -> U
         
         Spacer(modifier = Modifier.height(16.dp))
         
-        // Per user requirement: "Lupa Password" feature must be plain text only, not a clickable link.
+
         Text(text = "Lupa Password? Hubungi Admin IT Kampus", style = MaterialTheme.typography.bodySmall)
         
         TextButton(onClick = onNavigateToRegister) {

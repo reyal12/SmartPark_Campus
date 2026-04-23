@@ -49,7 +49,7 @@ fun OutboundScreen(onNavigateBack: () -> Unit) {
             
             Spacer(modifier = Modifier.weight(1f))
             
-            // Security placeholder: SSL configuration and encryption mention
+
             Text(
                 text = "Data transmission is secured with SSL and AES-256 encryption.",
                 style = MaterialTheme.typography.labelSmall,

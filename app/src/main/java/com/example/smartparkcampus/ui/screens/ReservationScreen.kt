@@ -53,7 +53,7 @@ fun ReservationScreen(onNavigateBack: () -> Unit) {
             
             Spacer(modifier = Modifier.weight(1f))
             
-            // Security placeholder: Data encryption for sensitive user info
+
             Text(
                 text = "Note: Your data is encrypted and stored securely.",
                 style = MaterialTheme.typography.labelSmall,

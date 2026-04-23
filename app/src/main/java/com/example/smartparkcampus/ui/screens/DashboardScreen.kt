@@ -58,7 +58,7 @@ fun DashboardScreen(onNavigate: (String) -> Unit) {
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.background)
         ) {
-            // Header Section
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()

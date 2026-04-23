@@ -38,7 +38,7 @@ fun InboundScreen(onNavigateBack: () -> Unit) {
             
             Spacer(modifier = Modifier.height(32.dp))
             
-            // Placeholder for automated license plate scanning
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
