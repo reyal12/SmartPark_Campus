@@ -9,8 +9,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.smartparkcampus.navigation.NavGraph
-import com.example.smartparkcampus.ui.theme.SmartParkCampusTheme
+import com.example.smartparkcampus.View.navigation.NavGraph
+import com.example.smartparkcampus.View.theme.SmartParkCampusTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
