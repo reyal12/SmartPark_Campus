@@ -28,12 +28,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 
+import androidx.compose.ui.tooling.preview.Preview as ComposePreview
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InboundContent(onNavigateBack: () -> Unit) {
     val context = LocalContext.current
     
-    // Camera Permission State
+
     var hasCameraPermission by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(
@@ -50,7 +52,6 @@ fun InboundContent(onNavigateBack: () -> Unit) {
         }
     )
 
-    // Request permission on start
     LaunchedEffect(Unit) {
         if (!hasCameraPermission) {
             launcher.launch(Manifest.permission.CAMERA)
@@ -60,10 +61,10 @@ fun InboundContent(onNavigateBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Vehicle Entry (Inbound)") },
+                title = { Text("Kendaraan Masuk") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
             )
@@ -76,40 +77,43 @@ fun InboundContent(onNavigateBack: () -> Unit) {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Scanning License Plate...", style = MaterialTheme.typography.titleLarge)
+            Text(text = "Memindai Plat Nomor...", style = MaterialTheme.typography.titleLarge)
             
             Spacer(modifier = Modifier.height(24.dp))
             
-            // Real Camera Preview Area - Adjusted size and style for License Plate scanning
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(250.dp) // Reduced height for more focused plate scanning
+                    .height(250.dp) 
                     .clip(RoundedCornerShape(16.dp))
                     .border(2.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(16.dp))
                     .background(Color.Black),
                 contentAlignment = Alignment.Center
             ) {
                 if (hasCameraPermission) {
-                    CameraPreview(modifier = Modifier.fillMaxSize())
-                    
-                    // Optional: Scan area guide overlay
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth(0.8f)
-                            .height(60.dp)
-                            .border(1.dp, Color.White.copy(alpha = 0.5f), RoundedCornerShape(8.dp))
-                    )
+                    if (androidx.compose.ui.platform.LocalInspectionMode.current) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(Color.DarkGray),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text("Pratinjau Kamera", color = Color.White)
+                        }
+                    } else {
+                        CameraPreview(modifier = Modifier.fillMaxSize())
+                    }
                 } else {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(
                             imageVector = Icons.Default.CameraAlt, 
-                            contentDescription = "Camera", 
+                            contentDescription = "Kamera", 
                             modifier = Modifier.size(64.dp),
                             tint = Color.White
                         )
                         Spacer(modifier = Modifier.height(8.dp))
-                        Text("Camera Permission Required", color = Color.White)
+                        Text("Izin Kamera Diperlukan", color = Color.White)
                     }
                 }
             }
@@ -121,8 +125,8 @@ fun InboundContent(onNavigateBack: () -> Unit) {
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text(text = "Detected Plate: B 1234 ABC", style = MaterialTheme.typography.headlineSmall)
-                    Text(text = "Status: Authorized", color = Color(0xFF4CAF50))
+                    Text(text = "Plat Terdeteksi: B 1234 ABC", style = MaterialTheme.typography.headlineSmall)
+                    Text(text = "Status: Diizinkan", color = Color(0xFF4CAF50))
                 }
             }
             
@@ -132,7 +136,7 @@ fun InboundContent(onNavigateBack: () -> Unit) {
                 onClick = onNavigateBack,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Open Gate")
+                Text("Buka Gerbang")
             }
         }
     }
@@ -171,4 +175,12 @@ fun CameraPreview(modifier: Modifier = Modifier) {
         },
         modifier = modifier
     )
+}
+
+@ComposePreview(showBackground = true)
+@Composable
+fun InboundContentPreview() {
+    MaterialTheme {
+        InboundContent(onNavigateBack = {})
+    }
 }

@@ -23,10 +23,10 @@ fun MonitoringContent(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Real-time Slot Monitoring") },
+                title = { Text("Pemantauan Slot Real-time") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
             )
@@ -37,8 +37,8 @@ fun MonitoringContent(
                 modifier = Modifier.fillMaxWidth().padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                LegendItem(Color.Green, "Available")
-                LegendItem(Color.Red, "Occupied")
+                LegendItem(Color.Green, "Tersedia")
+                LegendItem(Color.Red, "Terisi")
             }
 
             LazyVerticalGrid(

@@ -23,10 +23,10 @@ fun HistoryContent(onNavigateBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Parking History") },
+                title = { Text("Riwayat Parkir") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
             )
@@ -60,7 +60,7 @@ fun HistoryCard(record: HistoryRecord) {
                 Text(text = record.timestamp, style = MaterialTheme.typography.bodySmall)
             }
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "Location: ${record.location}", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "Lokasi: ${record.location}", style = MaterialTheme.typography.bodyMedium)
         }
     }
 }

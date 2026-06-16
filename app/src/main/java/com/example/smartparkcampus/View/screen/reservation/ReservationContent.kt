@@ -37,10 +37,10 @@ fun ReservationContent(onNavigateBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Book a Slot") },
+                title = { Text("Pesan Slot") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
             )
@@ -52,13 +52,13 @@ fun ReservationContent(onNavigateBack: () -> Unit) {
                 .padding(16.dp)
                 .fillMaxSize()
         ) {
-            Text(text = "Select your preferred parking slot", style = MaterialTheme.typography.bodyLarge)
+            Text(text = "Pilih slot parkir yang Anda inginkan", style = MaterialTheme.typography.bodyLarge)
             Spacer(modifier = Modifier.height(16.dp))
             
             OutlinedTextField(
                 value = selectedSlot,
                 onValueChange = { selectedSlot = it },
-                label = { Text("Slot Number (e.g., A12)") },
+                label = { Text("Nomor Slot (misal: A12)") },
                 modifier = Modifier.fillMaxWidth()
             )
             
@@ -67,14 +67,14 @@ fun ReservationContent(onNavigateBack: () -> Unit) {
             OutlinedTextField(
                 value = duration,
                 onValueChange = { duration = it },
-                label = { Text("Estimated Duration (hours)") },
+                label = { Text("Estimasi Durasi (jam)") },
                 modifier = Modifier.fillMaxWidth()
             )
             
             Spacer(modifier = Modifier.weight(1f))
             
             Text(
-                text = "Note: Your data is encrypted and stored securely.",
+                text = "Catatan: Data Anda dienkripsi dan disimpan dengan aman.",
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.outline
             )
@@ -84,7 +84,7 @@ fun ReservationContent(onNavigateBack: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 enabled = selectedSlot.isNotEmpty() && duration.isNotEmpty()
             ) {
-                Text("Confirm Reservation")
+                Text("Konfirmasi Reservasi")
             }
         }
     }

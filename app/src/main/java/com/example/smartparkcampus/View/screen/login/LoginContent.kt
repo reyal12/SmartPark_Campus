@@ -29,14 +29,14 @@ fun LoginContent(
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_logo),
-            contentDescription = "Smart Park Logo",
+            contentDescription = "Logo Smart Park",
             modifier = Modifier.size(180.dp),
             contentScale = ContentScale.Fit
         )
         
         Spacer(modifier = Modifier.height(16.dp))
         
-        Text(text = "Welcome Back", style = MaterialTheme.typography.headlineLarge)
+        Text(text = "Selamat Datang Kembali", style = MaterialTheme.typography.headlineLarge)
 
         Spacer(modifier = Modifier.height(32.dp))
 
@@ -68,7 +68,7 @@ fun LoginContent(
                 onClick = { onLoginClick(username, password) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Login")
+                Text("Masuk")
             }
         }
 

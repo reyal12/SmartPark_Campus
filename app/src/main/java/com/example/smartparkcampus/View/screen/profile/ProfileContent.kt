@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,10 +32,10 @@ fun ProfileContent(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("User Profile") },
+                title = { Text("Profil Pengguna") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
             )
@@ -47,20 +48,25 @@ fun ProfileContent(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Profile Image
-            AsyncImage(
-                model = image,
-                contentDescription = "Profile Picture",
+
+            Box(
                 modifier = Modifier
                     .size(120.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
-                contentScale = ContentScale.Crop
-            )
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Person,
+                    contentDescription = "Foto Profil",
+                    modifier = Modifier.size(64.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Name
+
             Text(
                 text = "$firstName $lastName",
                 style = MaterialTheme.typography.headlineMedium,
@@ -75,18 +81,18 @@ fun ProfileContent(
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Info Card
+
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    ProfileInfoRow(label = "Address", value = address)
+                    ProfileInfoRow(label = "Alamat", value = address)
                     Divider(modifier = Modifier.padding(vertical = 8.dp), color = Color.LightGray.copy(alpha = 0.5f))
-                    ProfileInfoRow(label = "Role", value = "Mahasiswa / Driver")
+                    ProfileInfoRow(label = "Peran", value = "Mahasiswa / Driver")
                     Divider(modifier = Modifier.padding(vertical = 8.dp), color = Color.LightGray.copy(alpha = 0.5f))
-                    ProfileInfoRow(label = "Status", value = "Active")
+                    ProfileInfoRow(label = "Status", value = "Aktif")
                 }
             }
         }

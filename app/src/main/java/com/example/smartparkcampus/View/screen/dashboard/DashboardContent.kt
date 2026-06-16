@@ -54,7 +54,7 @@ fun DashboardContent(
                     IconButton(onClick = onLogout) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ExitToApp,
-                            contentDescription = "Logout",
+                            contentDescription = "Keluar",
                             tint = Color.White
                         )
                     }
@@ -63,7 +63,7 @@ fun DashboardContent(
                     IconButton(onClick = onProfileClick) {
                         Icon(
                             imageVector = Icons.Default.Person,
-                            contentDescription = "Profile",
+                            contentDescription = "Profil",
                             tint = Color.White
                         )
                     }

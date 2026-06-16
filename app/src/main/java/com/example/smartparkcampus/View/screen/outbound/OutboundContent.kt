@@ -14,10 +14,10 @@ fun OutboundContent(onNavigateBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Vehicle Exit (Outbound)") },
+                title = { Text("Kendaraan Keluar") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
                     }
                 }
             )
@@ -29,37 +29,32 @@ fun OutboundContent(onNavigateBack: () -> Unit) {
                 .padding(16.dp)
                 .fillMaxSize()
         ) {
-            Text(text = "Session Summary", style = MaterialTheme.typography.headlineMedium)
+            Text(text = "Ringkasan Sesi", style = MaterialTheme.typography.headlineMedium)
             Spacer(modifier = Modifier.height(24.dp))
             
-            SummaryRow(label = "Plate Number", value = "B 1234 ABC")
-            SummaryRow(label = "Entry Time", value = "10:30 AM")
-            SummaryRow(label = "Exit Time", value = "12:45 PM")
-            SummaryRow(label = "Duration", value = "2 hours 15 mins")
+            SummaryRow(label = "Nomor Plat", value = "B 1234 ABC")
+            SummaryRow(label = "Waktu Masuk", value = "10:30 AM")
+            SummaryRow(label = "Waktu Keluar", value = "12:45 PM")
+            SummaryRow(label = "Durasi", value = "2 jam 15 menit")
             
             HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
             
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                 Text(
-                    text = "Free Parking Campus Service", 
+                    text = "Layanan Parkir Kampus Gratis", 
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary
                 )
             }
             
             Spacer(modifier = Modifier.weight(1f))
-            
-            Text(
-                text = "Data transmission is secured with SSL and AES-256 encryption.",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.outline
-            )
+
             
             Button(
                 onClick = onNavigateBack,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Confirm & Exit")
+                Text("Konfirmasi & Keluar")
             }
         }
     }

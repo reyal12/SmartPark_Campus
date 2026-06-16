@@ -15,7 +15,7 @@ fun ProfileScreen(
         lastName = lastName,
         email = email,
         image = image,
-        address = "Jl. Kampus Smart Park No. 1", // Placeholder as DummyJSON login doesn't provide address
+        address = "Jl. Kampung Baru",
         onNavigateBack = onNavigateBack
     )
 }
