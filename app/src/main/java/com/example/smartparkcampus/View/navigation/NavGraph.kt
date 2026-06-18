@@ -37,7 +37,7 @@ fun NavGraph(navController: NavHostController) {
             })
         }
         
-        composable(Screen.Login.route) {
+       composable(Screen.Login.route) {
             val authApi = RetrofitClient.instance
             val repository = AuthRepository(authApi)
             val viewModel: LoginViewModel = viewModel(
