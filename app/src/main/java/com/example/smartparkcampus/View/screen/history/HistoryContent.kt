@@ -17,7 +17,11 @@ fun HistoryContent(onNavigateBack: () -> Unit) {
         HistoryRecord("B 1234 ABC", "Gedung A", "2023-10-27 10:30"),
         HistoryRecord("B 1234 ABC", "Gedung B", "2023-10-25 08:15"),
         HistoryRecord("B 1234 ABC", "Lapangan Parkir Utara", "2023-10-24 13:00"),
+        HistoryRecord("B 1234 ABC", "Gedung A", "2023-10-27 10:30"),
+        HistoryRecord("B 1234 ABC", "Gedung B", "2023-10-25 08:15"),
+        HistoryRecord("B 1234 ABC", "Lapangan Parkir Utara", "2023-10-24 13:00"),
         HistoryRecord("B 1234 ABC", "Gedung A", "2023-10-22 09:45")
+        
     )
 
     Scaffold(
